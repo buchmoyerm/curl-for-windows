@@ -19,9 +19,10 @@
     </ProjectConfiguration>
   </ItemGroup>
   <PropertyGroup Label="Globals">
-    <ProjectGuid>{FEBBDE63-5E2F-6F21-EA1D-74B8A43DB892}</ProjectGuid>
+    <ProjectGuid>{1BB6C2A2-C675-4C31-B577-9E1527344609}</ProjectGuid>
     <Keyword>Win32Proj</Keyword>
     <RootNamespace>curl.x64</RootNamespace>
+    <ProjectName>curl</ProjectName>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
   <PropertyGroup Label="Configuration">
@@ -37,7 +38,7 @@
   </ImportGroup>
   <PropertyGroup Label="UserMacros" />
   <PropertyGroup>
-    <ExecutablePath>$(VC_ExecutablePath_x64);$(WindowsSDK_ExecutablePath);$(VS_ExecutablePath);$(MSBuild_ExecutablePath);$(FxCopDir);$(PATH);</ExecutablePath>
+    <ExecutablePath>$(VC_ExecutablePath_x64);$(WindowsSDK_ExecutablePath);$(VS_ExecutablePath);$(SystemRoot)\SysWow64;$(MSBuild_ExecutablePath);$(FxCopDir);$(PATH)</ExecutablePath>
     <IntDir>$(SolutionDir)\Build\obj\$(PlatformToolset)\External\Curl\$(ProjectName)\$(Configuration)\$(Platform)\</IntDir>
     <LinkIncremental Condition="'$(Configuration)|$(Platform)'=='Release|x64'">false</LinkIncremental>
     <LinkIncremental Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">false</LinkIncremental>
@@ -82,6 +83,7 @@
       <AdditionalDependencies>ws2_32.lib;wldap32.lib;advapi32.lib;gdi32.lib;user32.lib;wsock32.lib</AdditionalDependencies>
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <OutputFile>$(OutDir)$(ProjectName)$(TargetExt)</OutputFile>
+      <TargetMachine />
     </Link>
     <ResourceCompile>
       <AdditionalIncludeDirectories>..\..;..\..\curl\lib;..\..\curl\src;..\..\curl\include;..\..\build;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
@@ -147,6 +149,7 @@
       <LinkTimeCodeGeneration>UseLinkTimeCodeGeneration</LinkTimeCodeGeneration>
       <OptimizeReferences>true</OptimizeReferences>
       <OutputFile>$(OutDir)$(ProjectName)$(TargetExt)</OutputFile>
+      <TargetMachine />
     </Link>
     <ResourceCompile>
       <AdditionalIncludeDirectories>..\..;..\..\curl\lib;..\..\curl\src;..\..\curl\include;..\..\build;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
@@ -196,21 +199,37 @@
     <ClCompile Include="..\..\curl\src\tool_parsecfg.c" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="libcurl.vcxproj">
-      <Project>{95570DE1-F758-853F-F186-24568C451E42}</Project>
+    <ProjectReference Include="libcurl_v120.vcxproj">
+      <Project>{2fd386d8-175d-4e61-8ec0-a47ed01e5ce2}</Project>
+      <Private>false</Private>
       <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
+      <CopyLocalSatelliteAssemblies>false</CopyLocalSatelliteAssemblies>
+      <LinkLibraryDependencies>true</LinkLibraryDependencies>
+      <UseLibraryDependencyInputs>false</UseLibraryDependencyInputs>
     </ProjectReference>
-    <ProjectReference Include="openssl.vcxproj">
-      <Project>{1BD60F50-D464-18C6-33C2-985993160740}</Project>
+    <ProjectReference Include="libssh2_v120.vcxproj">
+      <Project>{a4d2f803-836f-418b-a4bf-cdb84a0c0c56}</Project>
+      <Private>false</Private>
       <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
+      <CopyLocalSatelliteAssemblies>false</CopyLocalSatelliteAssemblies>
+      <LinkLibraryDependencies>true</LinkLibraryDependencies>
+      <UseLibraryDependencyInputs>false</UseLibraryDependencyInputs>
     </ProjectReference>
-    <ProjectReference Include="zlib.vcxproj">
-      <Project>{5EB20D98-35CB-2563-A2D0-8BE15F3E502C}</Project>
+    <ProjectReference Include="openssl_v120.vcxproj">
+      <Project>{de03bfb4-4e11-4afc-b7db-e2c27a6a2685}</Project>
+      <Private>false</Private>
       <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
+      <CopyLocalSatelliteAssemblies>false</CopyLocalSatelliteAssemblies>
+      <LinkLibraryDependencies>true</LinkLibraryDependencies>
+      <UseLibraryDependencyInputs>false</UseLibraryDependencyInputs>
     </ProjectReference>
-    <ProjectReference Include="libssh2.vcxproj">
-      <Project>{CC8058D3-1228-7299-E789-6FCF014FA56E}</Project>
+    <ProjectReference Include="zlib_v120.vcxproj">
+      <Project>{885b9513-abe8-4c18-9846-eeb427b0f108}</Project>
+      <Private>false</Private>
       <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
+      <CopyLocalSatelliteAssemblies>false</CopyLocalSatelliteAssemblies>
+      <LinkLibraryDependencies>true</LinkLibraryDependencies>
+      <UseLibraryDependencyInputs>false</UseLibraryDependencyInputs>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

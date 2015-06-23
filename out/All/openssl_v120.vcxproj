@@ -19,9 +19,10 @@
     </ProjectConfiguration>
   </ItemGroup>
   <PropertyGroup Label="Globals">
-    <ProjectGuid>{1BD60F50-D464-18C6-33C2-985993160740}</ProjectGuid>
+    <ProjectGuid>{DE03BFB4-4E11-4AFC-B7DB-E2C27A6A2685}</ProjectGuid>
     <Keyword>Win32Proj</Keyword>
     <RootNamespace>openssl.x64</RootNamespace>
+    <ProjectName>openssl</ProjectName>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
   <PropertyGroup Label="Configuration">
@@ -37,7 +38,7 @@
   </ImportGroup>
   <PropertyGroup Label="UserMacros" />
   <PropertyGroup>
-    <ExecutablePath>$(ExecutablePath);$(MSBuildProjectDirectory)\..\..\bin\;$(MSBuildProjectDirectory)\..\..\bin\</ExecutablePath>
+    <ExecutablePath>$(VC_ExecutablePath_x64);$(WindowsSDK_ExecutablePath);$(VS_ExecutablePath);$(SystemRoot)\SysWow64;$(MSBuild_ExecutablePath);$(FxCopDir);$(PATH)</ExecutablePath>
     <IntDir>$(SolutionDir)\Build\obj\$(PlatformToolset)\External\Curl\$(ProjectName)\$(Configuration)\$(Platform)\</IntDir>
     <LinkIncremental Condition="'$(Configuration)|$(Platform)'=='Release|x64'">false</LinkIncremental>
     <LinkIncremental Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">false</LinkIncremental>
@@ -83,6 +84,8 @@
     </ClCompile>
     <Lib>
       <OutputFile>$(OutDir)lib\$(ProjectName)$(TargetExt)</OutputFile>
+      <TargetMachine>
+      </TargetMachine>
     </Lib>
     <Link>
       <AdditionalDependencies>
@@ -147,6 +150,8 @@
     <Lib>
       <AdditionalOptions>/LTCG %(AdditionalOptions)</AdditionalOptions>
       <OutputFile>$(OutDir)lib\$(ProjectName)$(TargetExt)</OutputFile>
+      <TargetMachine>
+      </TargetMachine>
     </Lib>
     <Link>
       <AdditionalDependencies>
